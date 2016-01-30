@@ -1,17 +1,19 @@
-global  _start
+section .data                   ; data section
+	;;  the string to print, 0xa=cr
+msg:	    db "Hello, asm", 0xa
+	len     equ $-msg	; $ means "here"
+	;;  len is a value, not an address
 
-	        section .text
-_start:
-	;;  write(1, message, 13)
-	        mov     eax, 1	; system call 1 is write
-	        mov     edi, 1	; file handle 1 is stdout
-	        mov     esi, message ; address of string to output
-	        mov     edx, 13	     ; number of bytes
-	        syscall		     ; invoke operating system to do the write
+	section .text		; code section
+	global main		; make label available to linker
 
-	;;  exit(0)
-	        mov     eax, 60	; system call 60 is exit
-	        xor     edi, edi ; exit code 0
-	        syscall		 ; invoke operating system to exit
-message:
-	        db      "Hello, World", 10 ; note the newline at the end
+main:				; standard gcc entry point
+	        mov     edx, len ; arg3, length of string to print
+	        mov     ecx, msg ; arg2, address of the string
+	        mov     ebx, 2	 ; arg1, where to write, standard error
+	        mov     eax, 4	 ; system call number (sys_write)
+	        int     0x80	 ; interrupt 80 hex, call kernel
+
+	        mov     ebx, 0	; exit code, 0=normal
+	        mov     eax, 1	; system call number (sys_exit)
+	        int     0x80	; interrupt 80 hex, call kernel
