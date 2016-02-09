@@ -2,6 +2,6 @@
 
 int main(void)
 {
-  print_hello_holberton();
-  return(0);
+  print_tebahpla();
+  return (0);
 }

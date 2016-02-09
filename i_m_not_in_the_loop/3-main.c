@@ -1,36 +1,7 @@
-#include <stdio.h>
+#include "my_functions.h"
 
 int main(void)
 {
-  // Let's declare two variables of types
-  // integer and char.
-  // We declare integers with the int keyword
-  int age;
-  //We declare chars with the char keyword
-  char first_name_initial;
-
-  //We assign values to variables using =
-  age = 98;
-  // Same with a char.  Chars are written with
-  // single quotes
-  first_name_initial = 'J';
-  printf("Age = %d, Initial = %c\n", age, first_name_initial);
-  age += 10; // we add 10 to the age
-  printf("Age = %d, Initial = %c\n", age, first_name_initial);
-  age = age -10;
-  printf("Age = %d, Initial = %c\n", age, first_name_initial);
-  // Actually, whatever the type of variable is,
-  // everything else is just for that machine.
-  // Types tell the program what those numbers
-  // are and how to interpret and deal with them
-  // So chars are also numbers
-  printf("Char %c = %d\n", first_name_initial, first_name_initial);
-  //0 man ascii
-  first_name_initial++;
-  printf("Char %c = %d\n", first_name_initial, first_name_initial);
-  first_name_initial -= 3;
-  printf("Char %c = %d\n", first_name_initial, first_name_initial);
-  first_name_initial = first_name_initial + 10;
-  printf("Char %c = %d\n", first_name_initial, first_name_initial);
+  print_base16();
   return (0);
 }
