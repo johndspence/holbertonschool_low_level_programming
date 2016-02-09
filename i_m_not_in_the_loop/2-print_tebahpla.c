@@ -5,9 +5,10 @@ void print_tebahpla (void)
 /*Declare print_tebahpla function*/
 
 {
-  char tebahpla; //Declaring tebahpla variable in char
+  char tebahpla; 
+  /*Declaring tebahpla variable in char*/
   for (tebahpla='z' ; tebahpla>='a'; tebahpla--)
-    //z to a loop
+    /*z to a loop*/
     print_char(tebahpla);
   /*Execute print_char function with tebahpla variable*/
 }
