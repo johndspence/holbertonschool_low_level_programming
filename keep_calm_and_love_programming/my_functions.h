@@ -1,5 +1,6 @@
-int absolute(int);
-uppercase(char);
+int print_char(char c);
+void absolute(int);
+void uppercase(char);
 void print_last_digit(int);
 void print_to_98(int);
 void print_combination_2(void);
