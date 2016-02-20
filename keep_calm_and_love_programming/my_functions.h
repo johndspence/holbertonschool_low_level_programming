@@ -1,3 +1,4 @@
+#include <stdio.h>
 int print_char(char c);
 void absolute(int);
 void uppercase(char);
