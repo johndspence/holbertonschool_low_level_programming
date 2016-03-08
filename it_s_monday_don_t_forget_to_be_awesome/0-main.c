@@ -1,17 +1,13 @@
 #include <stdio.h>
-char lowercase(char);
+void reset_to_98(int *n);
 
 int main(void)
 {
-  char c;
+  int n;
 
-  c = lowercase('a');
-  printf("%c\n", c);
-  c = lowercase('h');
-  printf("%c\n", c);
-  c = lowercase('A');
-  printf("%c\n", c);
-  c = lowercase('{');
-  printf("%c\n", c);
+  n = 402;
+  printf("n=%d\n", n);
+  reset_to_98(&n);
+  printf("n=%d\n", n);
   return (0);
 }
