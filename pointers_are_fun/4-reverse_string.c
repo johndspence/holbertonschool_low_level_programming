@@ -1,33 +1,22 @@
 #include "my_functions.h"
+void reverse_string(char *s);
 
-/* prints a string using pointer of array str plus 1 */
-void print_string(char *s){
+/* Puts s[i] into temp variable, swaps s[i] with s[j] 
+and then puts temp into s[j] */
+void reverse_string(char *s){
 	
-int i 
-int j
-char temp
+int i; 
+int j = 0;
+int temporary;
 
-	while (*(str+i) != '\0'){
-	i++;
+for (i=0; *(s+i) != '\0'; i++){}
+	i=i-1;
+
+while (j < i){
+	temporary = s[i];
+	s[i] = s[j];
+	s[j] = temporary;
+	i--;
+	j++;
 	}
-
-
-	int i = 0;
-	while ( *(s+i) != '\0' ){
-		print_char( *(str-i));
-		i++;
-}
-
-}
-
-
-
-int str_len(char *str){
-
-	int i = 0;
-
-	while (*(str+i) != '\0'){
-	i++;
-	}
- return (i);
 }
