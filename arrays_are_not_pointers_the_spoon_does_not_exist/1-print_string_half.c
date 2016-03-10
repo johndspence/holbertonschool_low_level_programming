@@ -17,7 +17,7 @@ else
  	j = (i - 1) / 2;
 
 while ( *(str+j) != '\0' ){
-		print_char( *(str+j));
+		print_char( *(str+j+1));
 		j++;
 }
 }
