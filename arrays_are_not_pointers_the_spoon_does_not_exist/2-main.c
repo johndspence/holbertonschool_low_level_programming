@@ -5,7 +5,7 @@ int main(void)
   int array[5];
 
   array[0] = 98;
-  array[1] = 2147483648;
+  array[1] = -1;
   array[2] = 198;
   array[3] = 298;
   array[4] = 1024;
