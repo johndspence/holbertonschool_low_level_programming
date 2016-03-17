@@ -1,17 +1,19 @@
-#include <stdio.h>
+/* Puts s[i] into temp variable, swaps s[i] with s[j]
+and then puts temp into s[j] */
+void reverse_array(int *a, int n){
 
-void reverse_array(int *a, int n)
+int i = 0;
+int j = 0;
+int temporary;
 
+for (i=0; i < n ; i++){}
+	i=i-1;
 
-
-void print_array(int *a, int n);
-
-int main(void)
-{
-  int a[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 98, 1024, 1337};
-
-  print_array(a, sizeof(a) / sizeof(int));
-  reverse_array(a, sizeof(a) / sizeof(int));
-  print_array(a, sizeof(a) / sizeof(int));
-  return (0);
+while (j < i){
+	temporary = a[i];
+	a[i] = a[j];
+	a[j] = temporary;
+	i--;
+	j++;
+	}
 }
