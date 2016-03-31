@@ -3,6 +3,10 @@ int factorial(int n) {
   if (n < 0) {
     return(-1);
   }
+  /* If result will exceed INT_MAX */
+  if (n > 12) {
+    return(-1);
+  }
   /* If 0 factorial is 1 */
   if (n == 0) {
   return 1;
