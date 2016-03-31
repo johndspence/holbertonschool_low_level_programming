@@ -13,7 +13,9 @@ int power(int x, int y){
   }
   /* Otherwise multiply the number by itself recursively y times */
   else {
+    if ((x * power(x, y-1)) < 2147483647) {
     return(x * power(x, y-1));
+    }
     }
 return(x);
 }
