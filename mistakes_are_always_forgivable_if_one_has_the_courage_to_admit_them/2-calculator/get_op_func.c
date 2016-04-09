@@ -18,5 +18,5 @@ int (*get_op_func(char c))(int k, int l) {
     }
 
   }
-  return (0);
+  return(0);
 }

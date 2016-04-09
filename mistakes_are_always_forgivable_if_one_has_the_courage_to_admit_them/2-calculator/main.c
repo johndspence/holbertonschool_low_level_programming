@@ -8,27 +8,25 @@ int print_char(char c);
 int answer;
 void print_number(int n);
 
-int main(int ac, char ** av) {
-  
 
-if (ac != 4){
-    printf ("not right number of arguments %d\n", (*av[2]));
-  }
-if (*av[2] == 'h'){
-  printf ("not acceptable %d\n", (*av[2]));
-}
-  else {
+/* Retrieve arguments */
+int main(int ac, char **av) {
+  if((ac == 4) && (atoi(av[1]) >= 0) && (atoi(av[1]) <= 9) && (atoi(av[3]) >= 0) && \
+    (atoi(av[3]) <= 9) && (av[2][1] == '\0') && ((*av[2] == '+') || \
+    (*av[2] == '-') || (*av[2] == '*') || (*av[2] == '/')))
+    {
     num1 = atoi(av[1]);
     num2 = atoi(av[3]);
     answer = ((*get_op_func(*av[2]))(num1, num2));
     print_number(answer);
     print_char('\n');
+    return(0);
   }
-  return (0);
+return(1);
 }
 
 
-
+/* inclusion of print number function in order to avoid printf */
 void print_number(int n){
   int ncopy;
   int power=10;
@@ -58,7 +56,7 @@ print_char ('0');}
 }
 
 
-
+/* inclusion of print_char function in order to avoid printf */
 int print_char(char c)
 {
   return (write(1, &c, 1));
