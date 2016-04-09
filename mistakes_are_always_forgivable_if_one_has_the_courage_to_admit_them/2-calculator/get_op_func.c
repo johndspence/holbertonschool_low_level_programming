@@ -16,7 +16,7 @@ int (*get_op_func(char c))(int k, int l) {
     if (c == operators[i]) {
       return (*functions[i]);
     }
-    
+
   }
   return (0);
 }
