@@ -11,8 +11,7 @@ void print_number(int n);
 
 /* Retrieve arguments */
 int main(int ac, char **av) {
-  if((ac == 4) && (atoi(av[1]) >= 0) && (atoi(av[1]) <= 9) && (atoi(av[3]) >= 0) && \
-    (atoi(av[3]) <= 9) && (av[2][1] == '\0') && ((*av[2] == '+') || \
+  if((ac == 4) && (av[2][1] == '\0') && ((*av[2] == '+') || \
     (*av[2] == '-') || (*av[2] == '*') || (*av[2] == '/')))
     {
     num1 = atoi(av[1]);
@@ -24,7 +23,6 @@ int main(int ac, char **av) {
   }
 return(1);
 }
-
 
 /* inclusion of print number function in order to avoid printf */
 void print_number(int n){

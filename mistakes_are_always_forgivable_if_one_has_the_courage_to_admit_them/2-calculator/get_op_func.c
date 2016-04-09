@@ -8,6 +8,7 @@ int op_mod(int a, int b);
 int op_null(int a, int b);
   int k;
   int l;
+/* iterates through two arrays to select function */  
 int (*get_op_func(char c))(int k, int l) {
   int i;
   char operators[5] = {'+', '-', '*', '/', '%'};
