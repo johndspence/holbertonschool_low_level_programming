@@ -37,27 +37,22 @@ int position1;
 int position2;
 char *alldigits;
 
-
 alldigits = "0123456789";
 position1 = 0;
 position2 = 1;
 
-
 /* Loop through position1 */
 while (position1 < 7)
   {
-
   /* Loop through position2 from last value of position1+1 to 9 */
-  position2 = position1 + 1;
-  while (position2 <= 9)
+    position2 = position1 + 1;
+    while (position2 <= 9)
     {
       position3loop(position1, position2, alldigits);
-
-    position2++;
+      position2++;
     }
     /* End of loop through position2; go back to position1 loop */
-
-  position1++;
+    position1++;
   }
   /* End of loop through position1; go back to position1 loop */
 printfinal();
