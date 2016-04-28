@@ -1,0 +1,53 @@
+#include <stdio.h>
+/*
+ * Comments!
+ */
+
+/* 
+ * While str[i} is not equal to 0, increase i as a counter
+ * of length.  Return length of i
+ */
+int str_len(char *s)  
+{
+  int i;
+  i = 0;
+  while (s[++i])
+    ;
+  return i;
+}
+/*
+void swap_int(int *a, int *b)
+{
+  int temp;
+  temp = *a;
+  *a = *b;
+  *b = temp;
+}
+*/
+/*
+ * Reversing string function.  Returns pointer to reversed string
+ */
+char *rev_string(char *str)
+{
+  int i;
+  int len;
+  char temp;
+  
+  i = 0;
+  len = str_len(str) - 1;
+  printf("%d\n", len);
+  while (str[i] != '\0')
+    {
+      temp = str[i];
+      printf("str %d is %c\n", i, str[i]);
+      printf("temp = %d\n", temp);
+      str[i] = str[len];
+      printf("str %d is %c\n", i, str[i]);
+      str[len] = temp;
+      printf("str %d is %c\n", i, str[i]);
+      i++;
+      len--;
+      printf("%d\n", str[0]+ '0');
+    }
+  return(str);
+}
