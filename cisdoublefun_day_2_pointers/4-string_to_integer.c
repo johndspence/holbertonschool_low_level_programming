@@ -15,22 +15,28 @@
 int string_to_integer(char *s)
 {
 int i;
-int j;
-char substring[256];
+int result;
 
 i = 0;
-j = 0;
+result = 1;
 
-while (s[i] !='\0')
+while(s[i] !='\0')
   {
-    while ((s[i] >= '0') && (s[i] <= '9'))
+    if(s[i] == '-')
+    {
+      result = (result *-1);
+    }
+    if ((s[i] >= '0') && (s[i] <= '9'))
+    {
+      result = result * (s[i] - '0');
+      i++;
+      while((s[i] >= '0') && (s[i] <= '9'))
       {
-        substring[j] = s[i];
-        i++;
-        j++;
-        printf("i = %d s[i] = %c\n", i, s[i]);
+      result = result * 10 + (s[i] - '0');
+      i++;
       }
-      printf("%s\n", substring);
+    }
+break;
   }
-return (1);
+  return (result);
 }
