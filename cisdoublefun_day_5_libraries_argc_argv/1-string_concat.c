@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /* String Length Checker */
-int stringlength(char *destorsrc)
+int stringlength(const char *destorsrc)
 {
   int length;
   length = 0;
@@ -13,7 +13,7 @@ int stringlength(char *destorsrc)
 }
 
 /* Concat function */
-char *string_concat(char *dest, char *src)
+char *string_concat(char *dest, const char *src)
 {
   int lengthdestarray;
   int lengthdeststring;
