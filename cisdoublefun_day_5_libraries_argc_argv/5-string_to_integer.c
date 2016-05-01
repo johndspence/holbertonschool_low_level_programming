@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 int string_to_integer(char *s)
 {
 int i;
@@ -17,7 +19,6 @@ while((s[i] !='\0') && (s[i] < '0' || s[i] > '9'))
     }
     i++;
   }
-printf("sign is %d\n", sign);
 
 while(s[i] >= '0' && s[i] <= '9')
   {
