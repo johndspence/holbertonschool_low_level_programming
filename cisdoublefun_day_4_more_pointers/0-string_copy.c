@@ -1,5 +1,6 @@
 char *string_copy(char *dest, const char *src)
 {
+/* iterate through dest and source */
 int i;
 i = 0;
 
