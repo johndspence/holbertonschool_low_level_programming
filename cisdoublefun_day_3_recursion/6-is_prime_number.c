@@ -5,7 +5,6 @@ int primechecker(int n, int i)
   if (i == 1)
   {
     return 1;
-    printf("i = %d\n", i);
   }
   else
   {
