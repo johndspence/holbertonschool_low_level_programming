@@ -1,5 +1,5 @@
 #include <stdio.h>
-char *string_nconcat(char *, char *);
+char *string_nconcat(char *, char *, int n);
 
 int main()
 {

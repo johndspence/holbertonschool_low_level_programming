@@ -34,6 +34,6 @@ char *string_concat(char *dest, const char *src)
       lengthdeststring++;
       positioninsrc++;
     }
-    dest[lengthdeststring + 1] = '\0';
+    dest[lengthdeststring] = '\0';
   return (dest);
 }
