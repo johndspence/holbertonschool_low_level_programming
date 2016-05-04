@@ -14,17 +14,17 @@ int main(int ac, char **av)
   int answer;
 
   if((ac == 4) && (av[2][1] == '\0') && ((*av[2] == '+') || \
-    (*av[2] == '-') || (*av[2] == '*') || (*av[2] == '/')))
+  (*av[2] == '-') || (*av[2] == '*') || (*av[2] == '/')))
     {
-    int (*functionaddress)(int, int);
+      int (*functionaddress)(int, int);
 
-    num1 = atoi(av[1]);
-    num2 = atoi(av[3]);
-    functionaddress = get_op_func(*av[2]);
-    answer = functionaddress(num1, num2);
-    printf("%d\n", answer);
+      num1 = atoi(av[1]);
+      num2 = atoi(av[3]);
+      functionaddress = get_op_func(*av[2]);
+      answer = functionaddress(num1, num2);
+      printf("%d\n", answer);
 
-    return(0);
+      return(0);
     }
 return(1);
 }
