@@ -2,6 +2,7 @@
 #include "list.h"
 
 int add_node(List **list, char *str);
+void print_list(List *list);
 
 int main(void)
 {
@@ -10,9 +11,8 @@ int main(void)
   list = NULL;
   if (add_node(&list, "Holberton") == 1)
     return (1);
-  printf("%s\n", list->str);
   if (add_node(&list, "School") == 1)
     return (1);
-  printf("%s\n", list->str);
+  print_list(list);
   return (0);
 }

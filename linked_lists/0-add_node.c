@@ -45,8 +45,6 @@ int add_node(List **list, char *str)
   List *currentnode;
 
   /* Set list to point to currentnode */
-
-
   stringlength = str_len(str);
   stringcopy = string_copy(str, stringlength);
     if (stringcopy == NULL)
@@ -58,12 +56,7 @@ int add_node(List **list, char *str)
   currentnode->next = *list;
   *list = currentnode;
 
-  /* We just populated currentnode.content with a pointer to a new string
-   * and node.next with a pointer to NULL */
-
-  /* dereferenced value of **list is *list (what **list points to)
-   * which is the same as *list of main so we are really updating
-   * first to no longer hold NULL and now holds the address of currentnode
-   */
+  /* We just populated currentnode.str with a pointer to a new string
+   * and current node.next and moved the pointer to the new node */
    return 0;
 }

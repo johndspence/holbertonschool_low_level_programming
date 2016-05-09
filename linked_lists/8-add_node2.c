@@ -1,6 +1,13 @@
 #include <stdlib.h>
 #include "list.h"
 #include "stdio.h"
+#define NEWNODE_CREATE_POPULATE newnode = malloc(sizeof(List));\
+                if (newnode == NULL) \
+                  { \
+                    return 1; \
+                  } \
+                newnode->str = stringcopy; \
+                newnode->next = NULL; \
 
 /* Determine string length of passed read-only string */
 int str_len(char *str)
@@ -39,7 +46,6 @@ char *string_copy(const char *src, int i)
  * copy_string and return 0 to main if successful and 1 to main
  * if unsuccessful */
 
-/* first create the currentnode and set its link to NULL */
 int add_node(List **list, char *str)
 {
   List *currentnode;
@@ -59,11 +65,7 @@ int add_node(List **list, char *str)
    */
   if (*list == NULL)
     {
-      newnode = malloc(sizeof(List));
-        if (newnode == NULL)
-          return 1;
-      newnode->str = stringcopy;
-      newnode->next = NULL;
+      NEWNODE_CREATE_POPULATE;
       *list = newnode;
       currentnode = *list;
       return 0;
@@ -75,13 +77,10 @@ int add_node(List **list, char *str)
       currentnode = *list;
       while (currentnode->next != NULL)
         currentnode = currentnode->next;
-      newnode = malloc(sizeof(List));
-        if (newnode == NULL)
-          return 1;
-      newnode->str = stringcopy;
-      newnode->next = NULL;
+      NEWNODE_CREATE_POPULATE;
       currentnode->next = newnode;
       return 0;
     }
+
 return 0;
 }
