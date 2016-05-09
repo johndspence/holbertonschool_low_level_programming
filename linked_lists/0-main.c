@@ -12,5 +12,6 @@ int main(void)
     return (1);
   if (add_node(&list, "School") == 1)
     return (1);
+  printf("%s\n", list->str);
   return (0);
 }

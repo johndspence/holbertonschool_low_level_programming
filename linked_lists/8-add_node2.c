@@ -38,36 +38,50 @@ char *string_copy(const char *src, int i)
 /* add-node function:  Receive arguments, call str_len and
  * copy_string and return 0 to main if successful and 1 to main
  * if unsuccessful */
+
+/* first create the currentnode and set its link to NULL */
 int add_node(List **list, char *str)
 {
+  List *currentnode;
+  List *newnode;
   int stringlength;
   char *stringcopy;
-  List *current;
-  List *node;
 
+  /* Determine the string length in all cases */
   stringlength = str_len(str);
   stringcopy = string_copy(str, stringlength);
-    if (stringcopy == NULL)
+  if (stringcopy == NULL)
       return 1;
-  node = malloc(sizeof(List));
-    if (node == NULL)
-      return 1;
-  node->str = stringcopy;
-  node->next = *list;
-  /* We just populated node.content with a pointer to a new string
-   * and node.next with a pointer to NULL */
-  *list = node;
-  /* dereferenced value of **list is *list (what **list points to)
-   * which is the same as *first of main so we are really updating
-   * first to no longer hold NULL and now holds the address of node
-   * because the value of node is really the address of the contiguous
-   * blocks of struct node */
-   while (node != NULL)
-   {
-     printf("%d\n", node->next);
-     node = node->next;
-   }
 
+  /* If *list is null, this is the first node, so create node
+   * pulate it with the string, point it to NULL, and point *list
+   * to this node
+   */
+  if (*list == NULL)
+    {
+      newnode = malloc(sizeof(List));
+        if (newnode == NULL)
+          return 1;
+      newnode->str = stringcopy;
+      newnode->next = NULL;
+      *list = newnode;
+      currentnode = *list;
+      return 0;
+    }
 
-   return 0;
+  /* If *list is not empty, find the last element in the list */
+  if (*list != NULL)
+    {
+      currentnode = *list;
+      while (currentnode->next != NULL)
+        currentnode = currentnode->next;
+      newnode = malloc(sizeof(List));
+        if (newnode == NULL)
+          return 1;
+      newnode->str = stringcopy;
+      newnode->next = NULL;
+      currentnode->next = newnode;
+      return 0;
+    }
+return 0;
 }

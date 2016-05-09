@@ -45,17 +45,19 @@ int add_node(List **list, char *str)
   List *currentnode;
 
   /* Set list to point to currentnode */
-  *list = currentnode;
+
 
   stringlength = str_len(str);
   stringcopy = string_copy(str, stringlength);
     if (stringcopy == NULL)
       return 1;
   currentnode = malloc(sizeof(List));
-    if (node == NULL)
+    if (currentnode == NULL)
       return 1;
   currentnode->str = stringcopy;
   currentnode->next = *list;
+  *list = currentnode;
+
   /* We just populated currentnode.content with a pointer to a new string
    * and node.next with a pointer to NULL */
 
