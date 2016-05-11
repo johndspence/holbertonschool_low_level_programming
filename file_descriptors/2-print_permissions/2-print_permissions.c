@@ -1,48 +1,40 @@
-#include <sys/types.h>
-#include <fcntl.h>
-#include <stdio.h>
+#include <sys/stat.h>
+#include <unistd.h>
 
-int read(int handle, void *buffer, int nbyte);
-int write(int handle, void *buffer, int nbyte);
-int close(int handle);
+
+int print_char(char c)
+    {
+        return (write(1, &c, 1));
+    }
 
 int main(int argc, char *argv[])
 {
-  int fd;
-  int fd2;
-  int len;
-  char buf[BUFSIZ];
+    /* Create  struct of type stat */
+    struct stat Filestats;
 
-  /* if the program name and 2 arguments are received
-   * try to open the files passed as arguments
-   */
-  if (argc == 2)
-    {
-      /* open, read, write, and close with error
-       * checking at each stage.
-       */
-      fd = open(argv[1], O_RDONLY);
-      if (fd == -1)
-        {
-          perror("open");
-          return 1;
-        }
-      len = read(fd, buf, BUFSIZ);
-      if (len == -1)
-        {
-          perror("read");
-          close(fd);
+    if (argc != 2)
         return 1;
-        }
-      if ((write(1, buf, len)) == -1)
+
+
+
+    /* Populate that struct with results of lstat on argv[1]
+     * which is the filename */
+    if (lstat(argv[1], &Filestats) == -1)
         {
-        perror("write");
-        close(fd);
-        return 1;
+            return 1;
         }
-      if ((close(fd)) == -1)
-        return 1;
-      return 0;
-    }
-  return 1;
+    /* Print resolution of binary operator operating on st_mode
+     * variable and macros for each permission */
+    print_char( (S_ISDIR(Filestats.st_mode)) ? 'd' : '-');
+    print_char( (Filestats.st_mode & S_IRUSR) ? 'r' : '-');
+    print_char( (Filestats.st_mode & S_IWUSR) ? 'w' : '-');
+    print_char( (Filestats.st_mode & S_IXUSR) ? 'x' : '-');
+    print_char( (Filestats.st_mode & S_IRGRP) ? 'r' : '-');
+    print_char( (Filestats.st_mode & S_IWGRP) ? 'w' : '-');
+    print_char( (Filestats.st_mode & S_IXGRP) ? 'x' : '-');
+    print_char( (Filestats.st_mode & S_IROTH) ? 'r' : '-');
+    print_char( (Filestats.st_mode & S_IWOTH) ? 'w' : '-');
+    print_char( (Filestats.st_mode & S_IXOTH) ? 'x' : '-');
+    print_char('\n');
+    return 0;
 }
