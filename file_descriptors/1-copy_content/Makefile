@@ -5,9 +5,9 @@ OBJECTS=
 SOURCES=1-copy_content.c
 TARGET=1-copy_content
 
-all: 0-print_content
+all: 1-copy_content
 
-0-print_content : $(SOURCES)
+1-copy_content : $(SOURCES)
 	$(CC) $(CFLAGS) $(SOURCES) -o $(TARGET)
 
 .PHONY: clean
