@@ -7,8 +7,10 @@ main.c \
 commandlinereader.c \
 commandpromptprinter.c \
 libshell.a \
-builtinfunctions.c \
-print_char.c
+functionindex.c \
+print_char.c \
+printenvironment.c \
+str_comp.c
 
 TARGET=a.out
 

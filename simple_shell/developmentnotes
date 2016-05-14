@@ -5,7 +5,7 @@
  */
 int main(int argc, char **argv, char **env)
 {
-    shell loop
+      shell loop
           display prompt
           read_line: read from std input when user presses enter
             malloc
@@ -47,3 +47,4 @@ Files and to do
 //valgrind
 //test to see if static library has functions
 // ask again about do not relink
+// read and apply formatting document

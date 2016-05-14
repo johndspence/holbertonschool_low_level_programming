@@ -11,13 +11,9 @@ char **commandlinereader(__attribute__((unused)) char **env)
     char **tokens;
 
     entireline = read_line(0);
-    i = 0;
-    while (entireline[i] != '\0')
-        {
-          print_char(entireline[i]);
-          i++;
-        }
     tokens = string_split(entireline, ' ');
-    print_char(tokens[1][0]);
+
+    i = 0;
+    
     return tokens;
 }
