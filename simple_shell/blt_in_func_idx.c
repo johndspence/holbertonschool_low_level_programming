@@ -12,9 +12,6 @@ void (*blt_in_func_idx(char **cmd_ln_strgs))(char **env)
     char *blt_in_func_nms[] = {"env", NULL};
     void (*blt_in_func_addr_s[])(char **) = {&print_env, NULL};
 
-    printf("cmd_ln_strgs[0] in blt_in_func_indx is %s\n", cmd_ln_strgs[0]);
-    printf("blt_in_func_nms[0] in blt_in_func_indx is %s\n", blt_in_func_nms[0]);
-
     i = 0;
 
     while (blt_in_func_nms[i] != NULL)
