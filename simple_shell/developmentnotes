@@ -27,7 +27,7 @@ int main(int argc, char **argv, char **env)
 
 end of main
 }
-
+http://www.shsu.edu/csc_tjm/fall2000/cs431/shell-lab.html
 
 Files and to do
 // promt function
@@ -39,6 +39,8 @@ Files and to do
 // read input function
 // parse input function
 // execute function
+//check permissions vs thos in the example
+// account for blank spaces at beginning of command line
 
 // env function (parameters passed from parent?)
 // exit function

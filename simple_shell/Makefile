@@ -4,12 +4,12 @@ INCLUDE=
 OBJECTS=
 SOURCES=\
 main.c \
-commandlinereader.c \
-commandpromptprinter.c \
+cmd_ln_rdr.c \
+cmd_prmpt_prntr.c \
 libshell.a \
-functionindex.c \
+blt_in_func_idx.c \
 print_char.c \
-printenvironment.c \
+print_env.c \
 str_comp.c
 
 TARGET=a.out

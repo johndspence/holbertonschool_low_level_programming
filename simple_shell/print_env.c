@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void printenvironment(char **env)
+void print_env(char **env)
   {
     int i;
     i = 0;
