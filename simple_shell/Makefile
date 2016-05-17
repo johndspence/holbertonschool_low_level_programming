@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS= -Wall -Werror -Wextra -pedantic
+CFLAGS= -Wall -Werror -Wextra -pedantic -g
 INCLUDE=
 OBJECTS=
 SOURCES=\
@@ -11,7 +11,8 @@ blt_in_func_idx.c \
 path_func_idx.c \
 print_char.c \
 print_env.c \
-str_comp.c
+str_comp.c \
+str_len.c
 
 TARGET=a.out
 
