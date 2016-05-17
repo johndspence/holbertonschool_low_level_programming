@@ -14,7 +14,7 @@ int path_func_idx(char **, char **);
 void (*blt_in_func)(char **);
 
 
-int main(__attribute__((unused)) int argc, __attribute__((unused)) char **argv, char **env)
+int main(__attribute__((unused))int argc, __attribute__((unused)) char **argv, char **env)
 {
 	while(1) {
 		int i;
@@ -27,8 +27,8 @@ int main(__attribute__((unused)) int argc, __attribute__((unused)) char **argv, 
 
 		/* call command line reader, which call library function read_line
 		 * compare the first element of the arrary returned by command
-		 * line reader to "exit", and if a match, run bash function exit()
-		 * including currently unused variable
+		 * line reader to "exit", and if a match,
+		 * run bash function exit() including currently unused variable
 		 */
 		if (str_comp((cmd_ln_strgs = cmd_ln_rdr())[0], "exit") == 0) {
 			i = 0;

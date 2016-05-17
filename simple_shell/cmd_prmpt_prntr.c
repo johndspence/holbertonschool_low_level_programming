@@ -7,12 +7,11 @@ char *cmd_prmpt;
 void cmd_prmpt_prntr(void)
 {
 
-    i = 0;
-    cmd_prmpt = "SimpleShell ;-)";
+	i = 0;
+	cmd_prmpt = "SimpleShell ;-)";
 
-    while (cmd_prmpt[i] != '\0')
-        {
-            print_char(cmd_prmpt[i]);
-            i++;
-        }
+	while (cmd_prmpt[i] != '\0') {
+		print_char(cmd_prmpt[i]);
+		i++;
+	}
 }
