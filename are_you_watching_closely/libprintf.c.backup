@@ -14,10 +14,12 @@ int prt_num_u(unsigned int n);
 
 int printf(const char *format, ...) {
 	/* Points to each character */
-	int ival, i, prt_cnt;
+	int ival;
 	unsigned int uival;
 	unsigned long int ulival;
+	int i;
 	char *sval;
+	int prt_cnt;
 	/* Macro to point, via pointer ap, to each unnamed argument in turn */
 	va_list ap;
 	/* Macro to initialize va_list starting with first unnamed argument */
@@ -32,20 +34,21 @@ int printf(const char *format, ...) {
 		if (format[i] == '%') {
 			if (format[i+1] == '%') {
 				prt_chr('%');
-				prt_cnt++;
-			} else if ((format[i+1] == 'd')||(format[i+1]=='i')) {
-				prt_cnt += prt_num(ival=va_arg(ap, int));
-			} else if (format[i+1] == 'u') {
-				prt_cnt += prt_num_u(uival=va_arg(ap, ui));
-			} else if (format[i+1] == 'o') {
-				prt_cnt += prt_oct(uival=va_arg(ap, ui));
-			} else if (format[i+1] == 'x'||format[i+1] == 'X') {
-				prt_cnt += prt_hex(uival=va_arg(ap, ui));
-			} else if (format[i+1] == 's'||format[i+1] == 'c') {
-				prt_cnt += prt_str(sval=va_arg(ap, char*));
-			} else if (format[i+1] == 'p') {
+				prt_cnt++;}
+			else if ((format[i+1] == 'd')||(format[i+1] == 'i')) {
+				prt_cnt += prt_num(ival=va_arg(ap, int));}
+			else if (format[i+1] == 'u') {
+				prt_cnt += prt_num_u(uival=va_arg(ap, ui));}
+			else if (format[i+1] == 'o') {
+				prt_cnt += prt_oct(uival=va_arg(ap, ui));}
+			else if (format[i+1] == 'x'||format[i+1] == 'X') {
+				prt_cnt += prt_hex(uival=va_arg(ap, ui));}
+			else if (format[i+1] == 's'||format[i+1] == 'c') {
+				prt_cnt += prt_str(sval=va_arg(ap, char*));}
+			else if (format[i+1] == 'p') {
 				prt_cnt += prt_adr(ulival=va_arg(ap,ui long));
-			} else {
+			}
+			else {
 				prt_chr(format[i]);
 				prt_chr(format[i+1]);
 				prt_cnt = prt_cnt + 2;
