@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 int string_to_integer(char *s){
     int i=0,sum=0;
     
