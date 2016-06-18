@@ -1,31 +1,71 @@
 #include <unistd.h>
+#include <stdio.h>
 
 int print_char(char c)
 {
 	return (write(1, &c, 1));
 }
 
-int main (void){
+int string_to_integer(char *str){
+    int i;
+		int sum;
+
+		i = 0;
+		sum = 0;
+
+    while(str[i]!='\0'){
+      if(str[i] < 48 || str[i] > 57){
+        return -1;
+      }
+      else{
+        sum = sum*10 + (str[i] - 48);
+        i++;
+      }
+    }
+return sum;
+}
+
+int main(int argc, char* argv[]) {
 	int row;
 	int col;
 	int len;
 
-	row = 0;
-	col = 1;
-	len = 10;
+	if (argc != 2)
+	{
+		return -1;
+	}
 
-	print_char('a');
-	print_char('\n');
+	len = string_to_integer(argv[1]);
 
-	while (row < len) {
-		while (col < len) {
-			if (col == row)
+	if (len < 1)
+	{
+		return -1;
+	}
+
+	row = 1;
+	while (row <= len) {
+		col = 1;
+		while (col <= len) {
+			if ((col == len - row + 1) && (col == row))
 			{
-				print_char('b');
+				print_char('X');
+			}
+			else if (col == row)
+			{
+				print_char('\\');
+			}
+			else if (col == len - row + 1)
+			{
+				print_char('/');
+			}
+			else
+			{
+			print_char(' ');
 			}
 			col++;
 		}
-	row++;
+		print_char('\n');
+		row++;
 	}
 return 0;
 }
