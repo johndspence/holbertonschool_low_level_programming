@@ -1,11 +1,13 @@
 #include <unistd.h>
 #include <stdio.h>
 
+/* Print's a single character received */
 int print_char(char c)
 {
 	return (write(1, &c, 1));
 }
 
+/* Converts a string to an integer */
 int string_to_integer(char *str){
     int i;
 		int sum;
@@ -25,6 +27,7 @@ int string_to_integer(char *str){
 return sum;
 }
 
+/* Creates a X figure of dimension argv[1] rows and columns */
 int main(int argc, char* argv[]) {
 	int row;
 	int col;
