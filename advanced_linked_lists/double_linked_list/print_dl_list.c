@@ -4,6 +4,7 @@
 void print_string(char *str);
 int print_char(char c);
 
+/* Print all nodes except the last one*/
 void print_dl_list(List *list) {
 	List *current_node;
 
