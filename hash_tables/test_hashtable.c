@@ -6,6 +6,7 @@ HashTable *ht_create(unsigned int size);
 int ht_put(HashTable *hashtable, const char *key, const char *value);
 unsigned int hash(const char *key, unsigned int size);
 char *ht_get(HashTable *hashtable, const char *key);
+void ht_free(HashTable *hashtable);
 
 int main(void) {
   HashTable *ht = ht_create(5);
@@ -17,6 +18,7 @@ int main(void) {
   ht_put(ht, "Six", "Value Six");
   ht_put(ht, "Seven", "Value Seven");
   print_hashtable(ht);
+  ht_free(ht);
   return 0;
 }
 
