@@ -15,8 +15,7 @@ void quick_sort(int *array, int size)
         return;
     /* Sort smaller values on left of pivot
      * larger on right */
-
-    pivot = array[rand() % size];
+    pivot = array[size % 2];
     while (left < right) {
         while (array[left] < pivot)
         {
