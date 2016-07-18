@@ -1,34 +1,41 @@
-#include <stdlib.h>
+#include<stdlib.h>
+#include<stdio.h>
 
 void quick_sort(int *array, int size)
 {
     int left;
     int right;
     int pivot;
-    int swap;
+    int temp;
 
     left = 0;
-    right = size -1;
-    /* Returns if the partition is sorted */
+    right = size - 1;
+
     if (size < 2)
         return;
-    /* Chooses a random pivot point */
-    /* Swaps values until sorted small to left and larger right */
-    pivot = array[size/2];
+    /* Sort smaller values on left of pivot
+     * larger on right */
+
+    pivot = array[rand() % size];
     while (left < right) {
         while (array[left] < pivot)
+        {
             left++;
+        }
         while (array[right] > pivot)
+        {
             right--;
-        if (array[left] > array[right]) {
-            swap = array[left];
+        }
+        if (array[left] > array[right])
+        {
+            temp = array[left];
             array[left] = array[right];
-            array[right] = swap;
+            array[right] = temp;
             } else {
-                right++;
+                left++;
             }
         }
-    /* Recursively sorts each partition */
+    /* Sort each side of the pivot */
     quick_sort(array, left);
     quick_sort(&array[left], size - left);
 }
