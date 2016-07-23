@@ -1,7 +1,7 @@
 #include "tree_hdr.h"
 
 int btree_insert(BTree **tree, char *data){
-	if( *tree == 0 )
+	if( *tree == NULL )
 	{
 		*tree =(struct BTree*)malloc(sizeof(struct BTree));
 		if (tree == NULL)

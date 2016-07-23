@@ -1,9 +1,11 @@
 #include "tree_hdr.h"
 
-int btree_insert(BTree **tree, char *data);
-void print_preorder(BTree *tree);
 int test_insert();
-BTree *btree_find(BTree *tree, char *str);
+
+/*
+ *You can test your functions with this: gcc -Wall -Werror -Wextra
+ * -pedantic tree_test.c btree_find.c btree_insert.c
+ */
 
 int main() {
 	test_insert();
@@ -12,6 +14,10 @@ int main() {
 
 int test_insert() {
 	BTree *tree;
+	char *string;
+	char **array;
+
+
 	printf("The numbers should be in ascending order.\n");
 	tree = NULL;
 	btree_insert(&tree, "q - 1");
@@ -25,14 +31,14 @@ int test_insert() {
 	btree_insert(&tree, "o - 4");
 	btree_insert(&tree, "p - 5");
 	print_preorder(tree);
-	printf("Now I will try to find and element.\n");
-	printf("%s\n",btree_find(tree, "p - 5")->str);
-	printf("I passed the find command\n");
+	printf("Now I will try to find an element.\n");
+	string = btree_find(tree, "p - 5")->str;
+	printf("I think I just found the string: %s\n", string);
 	return 0;
 }
 
-
-void print_preorder(BTree *tree) {
+void print_preorder(BTree *tree)
+{
 	if (tree == NULL) return;
 	printf("%s\n", tree->str);
 	print_preorder(tree->left);
