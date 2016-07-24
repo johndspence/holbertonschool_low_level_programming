@@ -5,18 +5,14 @@ BTree *array_to_btree(char **array)
 	int i;
 	BTree *tree;
 
+	tree = NULL;
 	i = 0;
-	while (array[i++])
+	while (array[i] != '\0')
 	{
-		tree = btree_insert_array(array[i]);
+		printf(" I am array_ptr[i]%s\n", array[i]);
+		btree_insert(&tree, array[i]);
+		i++;
 	}
+printf(" I have exited the loop\n");
 return tree;
-}
-
-BTree *btree_insert_array(char *data)
-{
-	BTree *tree;
-
-	btree_insert(&tree, data);
-	return tree;
 }

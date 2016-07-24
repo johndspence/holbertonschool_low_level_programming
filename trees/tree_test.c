@@ -3,8 +3,7 @@
 int test_insert();
 
 /*
- *You can test your functions with this: gcc -Wall -Werror -Wextra
- * -pedantic tree_test.c btree_find.c btree_insert.c
+ *You can test your functions with this: gcc -Wall -Werror -Wextra -pedantic tree_test.c btree_find.c btree_insert.c
  */
 
 int main() {
@@ -15,8 +14,6 @@ int main() {
 int test_insert() {
 	BTree *tree;
 	char *string;
-	char **array;
-
 
 	printf("The numbers should be in ascending order.\n");
 	tree = NULL;
