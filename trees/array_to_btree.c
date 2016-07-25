@@ -1,5 +1,13 @@
 #include "tree_hdr.h"
-
+/**
+ * array_to_btree - Places array of strings into a binary tree
+ *
+ * @array: Pointer to array of strings that will be placed in the key values of
+ * the binary tree
+ *
+ * Description:  Receives an array of strings, iterates through the array, and
+ * passes each string to a function to insert the string into a binary tree
+ */
 BTree *array_to_btree(char **array)
 {
 	int i;
@@ -8,15 +16,12 @@ BTree *array_to_btree(char **array)
 
 	tree = NULL;
 	i = 0;
-	while (i < 10)
+	while (array[i] != '\0')
 	{
-		printf(" I am array_ptr[i]%s\n", array[i]);
 		ret_val = btree_insert(&tree, array[i]);
 		if (ret_val == 1)
 			return NULL;
 		i++;
 	}
-printf(" I have exited the loop\n");
-btree_free(&tree);
 return tree;
 }

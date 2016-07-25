@@ -1,17 +1,27 @@
 #include "tree_hdr.h"
-
-int test_insert();
+/**
+ * test_insert - test function that tests a function that inserts a string into
+ * a binary tree
+ *
+ * @arg: None
+ *
+ * Description:  None
+ */
+int test_insert(void);
 
 /*
- *You can test your functions with this: gcc -Wall -Werror -Wextra -pedantic tree_test.c btree_find.c btree_insert.c
+ *You can test your functions with this: gcc -Wall
+ *-Werror -Wextra -pedantic tree_test.c btree_find.c btree_insert.c btree_free.c
  */
 
-int main() {
+int main(void)
+{
 	test_insert();
 	return 0;
 }
 
-int test_insert() {
+int test_insert(void)
+{
 	BTree *tree;
 	char *string;
 
@@ -31,6 +41,7 @@ int test_insert() {
 	printf("Now I will try to find an element.\n");
 	string = btree_find(tree, "p - 5")->str;
 	printf("I think I just found the string: %s\n", string);
+	btree_free(tree);
 	return 0;
 }
 

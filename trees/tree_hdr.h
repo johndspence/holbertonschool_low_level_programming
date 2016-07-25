@@ -9,3 +9,4 @@ void print_preorder(BTree *tree);
 BTree *btree_find(BTree *tree, char *str);
 BTree *btree_insert_array(char *data);
 void btree_free(BTree *tree);
+int btree_depth(BTree *tree);

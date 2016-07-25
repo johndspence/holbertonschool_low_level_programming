@@ -1,13 +1,21 @@
 #include "tree_hdr.h"
+/**
+ * test_array_to_btree - test function for function that places an array into
+ * a binary tree and a function that frees a binary tree
+ *
+ * @arg: None
+ *
+ * Description: None
+ */
+int test_array_to_btree(void);
 
-int test_array_to_btree();
-
-int main() {
+int main(void)
+{
 	test_array_to_btree();
 	return 0;
 }
 
-int test_array_to_btree()
+int test_array_to_btree(void)
 {
 	BTree *tree;
 	char **array;
@@ -27,12 +35,15 @@ int test_array_to_btree()
 	array = array_data;
 	tree = array_to_btree(array);
 	print_preorder(tree);
+	printf("The depth is %d\n", btree_depth(tree));
+	btree_free(tree);
 	return 0;
 }
 
 void print_preorder(BTree *tree)
 {
-	if (tree == NULL) return;
+	if (tree == NULL)
+		return;
 	printf("tree-> ?%s\n", tree->str);
 	print_preorder(tree->left);
 	print_preorder(tree->right);
