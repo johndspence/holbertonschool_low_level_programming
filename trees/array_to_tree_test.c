@@ -1,5 +1,7 @@
 #include "tree_hdr.h"
 
+int test_array_to_btree();
+
 int main() {
 	test_array_to_btree();
 	return 0;
@@ -17,11 +19,11 @@ int test_array_to_btree()
 	array_data[2] = "e - 2";
 	array_data[3] = "r - 7";
 	array_data[4] = "t - 8";
-	array_data[4] = "y - 10";
-	array_data[5] = "u - 9";
-	array_data[6] = "i - 3";
-	array_data[7] = "o - 4";
-	array_data[8] = "p - 5";
+	array_data[5] = "y - 10";
+	array_data[6] = "u - 9";
+	array_data[7] = "i - 3";
+	array_data[8] = "o - 4";
+	array_data[9] = "p - 5";
 	array = array_data;
 	tree = array_to_btree(array);
 	print_preorder(tree);
