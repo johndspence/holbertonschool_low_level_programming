@@ -10,13 +10,13 @@
  */
 BTree *array_to_btree(char **array)
 {
-	int i;
+	unsigned int i;
 	int ret_val;
 	BTree *tree;
 
 	tree = NULL;
 	i = 0;
-	while (array[i] != '\0')
+	while (array[i] != NULL)
 	{
 		ret_val = btree_insert(&tree, array[i]);
 		if (ret_val == 1)

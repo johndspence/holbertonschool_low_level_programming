@@ -19,7 +19,7 @@ int test_array_to_btree(void)
 {
 	BTree *tree;
 	char **array;
-	char *array_data[10];
+	char *array_data[11];
 
 	printf("I will now enter an array into the binary tree.\n");
 	array_data[0] = "q - 1";
@@ -32,6 +32,7 @@ int test_array_to_btree(void)
 	array_data[7] = "i - 3";
 	array_data[8] = "o - 4";
 	array_data[9] = "p - 5";
+	array_data[10] = NULL;
 	array = array_data;
 	tree = array_to_btree(array);
 	print_preorder(tree);
