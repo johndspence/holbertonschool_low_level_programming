@@ -1,6 +1,6 @@
 #include "tree_hdr.h"
 
-NTree* correct_ntree(NTree *current_ntree_ptr, char** parents, int array_len)
+NTree* correct_ntree_ptr(NTree *current_ntree_ptr, char** parents, int array_len)
 {
 	int i;
 	List *current_list_ptr;

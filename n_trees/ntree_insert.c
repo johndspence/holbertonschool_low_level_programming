@@ -7,17 +7,11 @@
  * populate the Ntree with str and NULL
  */
 
-int array_length(char **array);
-
 int ntree_insert(NTree **tree, char **parents, char *data)
 {
 	int array_len;
-	NTree current_ntree;
-	NTree current_list;
-
-
-	array_len = array_lenth(parents);
-
+	NTree *current_ntree_ptr;
+	List *current_list_ptr;
 
 	if (*tree == NULL)
 	{
@@ -31,41 +25,41 @@ int ntree_insert(NTree **tree, char **parents, char *data)
 			return 1;
 		/* Populate root node children with NULL */
 		(*tree)->children = NULL;
-		current_ntree = **tree;
+		current_ntree_ptr = *tree;
 	}
 	else
 	{
-		current_ntree = **tree;
-
-		current_ntree = *correct_ntree(&current_ntree, parents, array_len)
-		if (current_ntree->children == NULL)
+		current_ntree_ptr = *tree;
+		array_len = array_length(parents);
+		current_ntree_ptr = correct_ntree_ptr(current_ntree_ptr, parents, array_len);
+		if (current_ntree_ptr->children == NULL)
 		{
-			current_ntree->children = (struct List *)malloc(sizeof(struct List));
-			if current_ntree->children = NULL
+			current_ntree_ptr->children = (struct List *)malloc(sizeof(struct List));
+			if (current_ntree_ptr->children == NULL)
 				return 1;
-			current_ntree->children->next = NULL;
-			current_ntree->children->node = (struct NTree *)malloc(sizeof(struct NTree));
+			current_ntree_ptr->children->next = NULL;
+			current_ntree_ptr->children->node = (struct NTree *)malloc(sizeof(struct NTree));
 			return 0;
 		}
 		else
 		{
-			current_list = current_ntree->children;
-			while (current_list->next != NULL)
+			current_list_ptr = current_ntree_ptr->children;
+			while (current_list_ptr->next != NULL)
 				{
-					current_list = current_list->next;
+					current_list_ptr = current_list_ptr->next;
 				}
-			current_list->next = (struct List *)malloc(sizeof(struct List));
-			if current_list->next = NULL
+			current_list_ptr->next = (struct List *)malloc(sizeof(struct List));
+			if (current_list_ptr->next == NULL)
 				return 1;
-			current_list = current_list->next;
-			current_list->next = NULL;
-			current_list->node = (struct NTree *)malloc(sizeof(struct Ntree));
-			if current_list->node = NULL
+			current_list_ptr = current_list_ptr->next;
+			current_list_ptr->next = NULL;
+			current_list_ptr->node = (struct NTree *)malloc(sizeof(struct NTree));
+			if (current_list_ptr->node == NULL)
 				return 1;
-			current_ntree = current_list->node;
-			current_ntree->str = data;
-			current_ntree->children = NULL
-			return 0;
+			current_ntree_ptr = current_list_ptr->node;
+			current_ntree_ptr->str = data;
+			current_ntree_ptr->children = NULL;
 		}
 	}
+	return 0;
 }
