@@ -1,31 +1,31 @@
 #include "tree_hdr.h"
 
-Ntree *correct_ntree(Ntree *current_ntree, array, array_len)
+NTree* correct_ntree(NTree *current_ntree_ptr, char** parents, int array_len)
 {
 	int i;
-	List *current_list;
+	List *current_list_ptr;
 
 	i = 0;
-	current_list = NULL;
+	current_list_ptr = NULL;
 	while (i <= array_len)
 	{
-		current_list = current_ntree->children;
-		if (current_list->node->str == array[i]
+		current_list_ptr = current_ntree_ptr->children;
+		if (current_list_ptr->node->str == parents[i])
 			{
-				current_ntree = current_ntree->node;
+				current_ntree_ptr = current_list_ptr->node;
 			}
 		else
 		{
-			current_list = current_list->next;
-			while (current_list->node != NULL
+			current_list_ptr = current_list_ptr->next;
+			while (current_list_ptr->node != NULL)
 				{
-					if (current_list->node->str == array[i])
+					if (current_list_ptr->node->str == parents[i])
 					{
-						current_ntree = current_list->node;
+						current_ntree_ptr = current_list_ptr->node;
 					}
 				}
 		}
 		i++;
 	}
-	return current_ntree;
+	return current_ntree_ptr;
 }

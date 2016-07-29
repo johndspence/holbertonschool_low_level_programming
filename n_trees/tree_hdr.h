@@ -1,18 +1,19 @@
-#ifndef _TREE_HDR_
-#define _TREE_HDR_
+/*#ifndef _TREE_HDR_
+#define _TREE_HDR_*/
 
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include "tree.h"
 
+int array_length(char **);
 int print_char(char c);
-Ntree *correct_ntree(Ntree *current_ntree, array, array_len);
+NTree *correct_ntree(NTree *current_ntree_ptr, char**, int);
 int ntree_insert(NTree **tree, char **parents, char *data);
-int ntree_insert(NTree **, char **, char *);
-void ntree_print(NTree *);
-void ntree_free(NTree *);
-char **string_split(const char *, char);
-void free_str_array(char **);
+void ntree_print(NTree *tree);
+void ntree_free(NTree *tree);
+char **string_split(const char *string, char separator);
+void free_str_array(char **array);
 
-#endif
+/*
+#endif*/
