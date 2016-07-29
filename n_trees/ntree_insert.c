@@ -10,6 +10,7 @@
 int ntree_insert(NTree **tree, char **parents, char *data)
 {
 	int array_len;
+	int i;
 	NTree *current_ntree_ptr;
 	List *current_list_ptr;
 
@@ -26,23 +27,41 @@ int ntree_insert(NTree **tree, char **parents, char *data)
 		/* Populate root node children with NULL */
 		(*tree)->children = NULL;
 		current_ntree_ptr = *tree;
+
+		printf("completed root insert\n");
 	}
-	else
-	{
-		current_ntree_ptr = *tree;
-		array_len = array_length(parents);
-		current_ntree_ptr = correct_ntree_ptr(current_ntree_ptr, parents, array_len);
-		if (current_ntree_ptr->children == NULL)
+	/* Tree not null but has no children-create a list and a node under root
+	there is omly one element in the array*/
+	current_ntree_ptr = *tree;
+	if (current_ntree_ptr->children == NULL)/*We were given a one layer tree*/
 		{
 			current_ntree_ptr->children = (struct List *)malloc(sizeof(struct List));
 			if (current_ntree_ptr->children == NULL)
 				return 1;
-			current_ntree_ptr->children->next = NULL;
-			current_ntree_ptr->children->node = (struct NTree *)malloc(sizeof(struct NTree));
+			current_list_ptr = current_ntree_ptr->children;
+			current_list_ptr->next = NULL;
+			current_list_ptr->node = (struct NTree *)malloc(sizeof(struct NTree));
+			if (current_list_ptr->node == NULL)
+				return 1;
+			current_ntree_ptr = current_list_ptr->node;
+			current_ntree_ptr->str = strdup(data);
+			current_ntree_ptr->children = NULL;
+			printf("Just made root node\n");
 			return 0;
 		}
-		else
+	if (current_ntree_ptr->children != NULL)
+		/* Yes I have children.  Find the right node and create a list and a node underneath it
+		we were given the root node*/
 		{
+			array_len = array_length(parents);
+			printf("just got array length = %d\n",array_len);
+			/* Find the right node by iterating through the array */
+			while (i < array_len)
+			{
+				current_ntree_ptr = correct_ntree_ptr(current_ntree_ptr, parents[i]);
+				i++;
+			}
+
 			current_list_ptr = current_ntree_ptr->children;
 			while (current_list_ptr->next != NULL)
 				{
@@ -57,9 +76,10 @@ int ntree_insert(NTree **tree, char **parents, char *data)
 			if (current_list_ptr->node == NULL)
 				return 1;
 			current_ntree_ptr = current_list_ptr->node;
-			current_ntree_ptr->str = data;
+			current_ntree_ptr->str = strdup(data);
 			current_ntree_ptr->children = NULL;
+			printf("Just made new node\n");
+
 		}
-	}
 	return 0;
 }

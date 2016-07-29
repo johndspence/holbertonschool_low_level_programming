@@ -6,8 +6,10 @@ int array_length(char **array)
 
 	i = 0;
 	while(array[i] != NULL)
+
 	{
 		i++;
 	}
+		printf("array length = %d\n",i);
 	return i;
 }

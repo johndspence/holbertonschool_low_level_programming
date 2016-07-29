@@ -1,31 +1,17 @@
 #include "tree_hdr.h"
 
-NTree* correct_ntree_ptr(NTree *current_ntree_ptr, char** parents, int array_len)
+
+NTree* correct_ntree_ptr(NTree *current_ntree_ptr, char* parent)
 {
-	int i;
+	/*We receive a pointer to the root node and one parent value. It must have children
+	because otherwise array length would be 0*/
 	List *current_list_ptr;
 
-	i = 0;
-	current_list_ptr = NULL;
-	while (i <= array_len)
-	{
-		current_list_ptr = current_ntree_ptr->children;
-		if (current_list_ptr->node->str == parents[i])
-			{
-				current_ntree_ptr = current_list_ptr->node;
-			}
-		else
+	current_list_ptr = current_ntree_ptr->children;
+	while (current_list_ptr->node->str != parent)
 		{
 			current_list_ptr = current_list_ptr->next;
-			while (current_list_ptr->node != NULL)
-				{
-					if (current_list_ptr->node->str == parents[i])
-					{
-						current_ntree_ptr = current_list_ptr->node;
-					}
-				}
 		}
-		i++;
-	}
-	return current_ntree_ptr;
+	printf("from find_trees %s\n", current_ntree_ptr->str);
+	return current_list_ptr->node;
 }
