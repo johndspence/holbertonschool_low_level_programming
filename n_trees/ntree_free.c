@@ -1,5 +1,6 @@
 #include "tree_hdr.h"
 
+/* Free next, free children, and free cur lst ptr itself */
 void free_list_ptr(List *cur_lst_ptr)
 {
 	if (cur_lst_ptr == NULL)
