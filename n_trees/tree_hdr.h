@@ -16,8 +16,7 @@ void free_str_array(char **array);
 List *new_list();
 NTree *new_node(char *data);
 int path_exists(NTree *tree, char **path);
-List *find_last_node(List *cur_lst_ptr);
 List *insrt_lctn(List *cur_lst_ptr, char **parents);
-
+void free_list_ptr(List *cur_lst_ptr);
 
 #endif
