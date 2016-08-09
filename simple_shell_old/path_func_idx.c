@@ -7,7 +7,7 @@ char **string_split(const char *str, char separator);
 
 int path_func_idx(__attribute__((unused))char **cmd_ln_strgs, __attribute__((unused))char **env)
 {
-	/*int i;
+	int i;
 	int j;
 	int k;
 	int str_len_path;
@@ -18,15 +18,21 @@ int path_func_idx(__attribute__((unused))char **cmd_ln_strgs, __attribute__((unu
 
 	i = 0;
 
-	while (env[i++]) {
+	/* Iterate through the environment variables */
+	while (env[i++])
+	{
+		/* Look for "PATH" */
 		if (env[i][0] == 80 && env[i][1] == 65 && env[i][2] == 84 &&
 						env[i][3] == 72) {
-			printf("the correct row is %d\n", i);
+			printf("the correct row from the environment variables is %d\n", i);
+			/* Get the length of the first command */
 			str_len_cmd = str_len(cmd_ln_strgs[0]);
+			/* Get the length of "PATH" */
 			str_len_path = str_len(env[i]);
-			path = malloc((str_len_path + str_len_cmd + 1 - 5) *
-			 			sizeof(char));
-			if (path == NULL) {
+
+			path = malloc((str_len_path + str_len_cmd + 1 - 5) *sizeof(char));
+			if (path == NULL)
+			{
 				perror("path");
 				printf("malloc failed\n");
 				return 1;
@@ -63,7 +69,7 @@ int path_func_idx(__attribute__((unused))char **cmd_ln_strgs, __attribute__((unu
 			path[j] = '\0';
 			printf("I have found PATH and will return 0 from path_func_idx!\n");
 			printf("path is %s\n", path);
-			return 0;*/
+			return 0;
 
 
 	return 0;
