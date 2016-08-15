@@ -17,6 +17,7 @@ List *new_list();
 NTree *new_NTree(char *data);
 int path_exists(NTree *tree, char **path);
 List *insrt_lctn(List *ins_lst_ptr, char **parents);
+int path_check(List *cur_lst_ptr, char **path);
 void free_list_ptr(List *cur_lst_ptr);
 
 #endif
