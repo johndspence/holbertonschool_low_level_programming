@@ -9,6 +9,8 @@
  * next and children of the combined "super"struct List.node->children are NULL
  */
 /* Free next, free children, and free cur lst ptr itself */
+int i = 0;
+int t = 0;
 void free_list_ptr(List *cur_lst_ptr)
 {
 	if (cur_lst_ptr == NULL)
